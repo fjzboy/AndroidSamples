@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
 import com.orhanobut.logger.Logger;
 
@@ -53,6 +54,7 @@ public class LauncherActivity extends AppCompatActivity {
     private Sample[] samplesData = new Sample[]{
             //new Sample("动态改动App图标", ActivityDynamicLauncherIcon.class),
             new Sample("TTS Demo", TTSDemo.class),
+            new Sample("RecyclerView item click", RvItemClickDemo.class),
     };
 
 

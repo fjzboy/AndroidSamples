@@ -136,4 +136,15 @@ public class TTSDemo extends AppCompatActivity implements TextToSpeech.OnInitLis
                 });
         alertInstall.create().show();
     }
+
+
+    @Override
+    protected void onDestroy() {
+
+        if (mTts != null) {
+            mTts.shutdown();
+        }
+
+        super.onDestroy();
+    }
 }
