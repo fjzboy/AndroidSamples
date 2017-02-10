@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
+import com.fjz.androidlittlesamples.viewscrolldemo.ViewScrollDemo;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
@@ -55,6 +56,7 @@ public class LauncherActivity extends AppCompatActivity {
             //new Sample("动态改动App图标", ActivityDynamicLauncherIcon.class),
             new Sample("TTS Demo", TTSDemo.class),
             new Sample("RecyclerView item click", RvItemClickDemo.class),
+            new Sample("ViewScrollDemo", ViewScrollDemo.class),
     };
 
 
