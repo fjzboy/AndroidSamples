@@ -1,0 +1,85 @@
+package com.fjz.androidlittlesamples.backgroundjobscheduler;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.firebase.jobdispatcher.Constraint;
+import com.firebase.jobdispatcher.FirebaseJobDispatcher;
+import com.firebase.jobdispatcher.GooglePlayDriver;
+import com.firebase.jobdispatcher.Job;
+import com.firebase.jobdispatcher.Lifetime;
+import com.firebase.jobdispatcher.RetryStrategy;
+import com.firebase.jobdispatcher.Trigger;
+import com.fjz.androidlittlesamples.R;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * job schedulers library in github:
+ * 1. GcmNetworkManager
+ * 2. https://github.com/firebase/firebase-jobdispatcher-android
+ * 3. Android-Job
+ *
+ */
+
+public class JobSchedulerActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_job_scheduler);
+
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_start_job)
+    public void startJob(View view) {
+
+        // Create a new dispatcher using the Google Play driver.
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+
+        Bundle myExtrasBundle = new Bundle();
+        myExtrasBundle.putString("some_key", "some_value");
+
+        Job myJob = dispatcher.newJobBuilder()
+                // the JobService that will be called
+                .setService(FirebaseJobService.class)
+                // uniquely identifies the job
+                .setTag("my-unique-tag")
+                // one-off job
+                .setRecurring(true)
+                // don't persist past a device reboot
+                .setLifetime(Lifetime.FOREVER)
+                // start between 0 and 60 seconds from now
+                .setTrigger(Trigger.executionWindow(5, 20))
+                // don't overwrite an existing job with the same tag
+                .setReplaceCurrent(false)
+                // retry with exponential backoff
+                .setRetryStrategy(RetryStrategy.DEFAULT_EXPONENTIAL)
+                // constraints that need to be satisfied for the job to run
+                .setConstraints(
+                        // only run on an unmetered network
+                        Constraint.ON_UNMETERED_NETWORK,
+                        // only run when the device is charging
+                        Constraint.DEVICE_CHARGING
+                )
+                .setExtras(myExtrasBundle)
+                .build();
+
+        dispatcher.mustSchedule(myJob);
+
+    }
+
+    @OnClick(R.id.btn_stop_job)
+    public void stopJob(View view) {
+        // Create a new dispatcher using the Google Play driver.
+        FirebaseJobDispatcher dispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(this));
+
+        dispatcher.cancel("my-unique-tag");
+
+    }
+
+
+}

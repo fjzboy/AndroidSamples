@@ -33,7 +33,16 @@
         <activity android:name=".ActivityDynamicLauncherIcon" />
         <activity android:name=".tts.TTSDemo" />
         <activity android:name=".recyclerviewitemclicklistener.RvItemClickDemo" />
-        <activity android:name=".viewscrolldemo.ViewScrollDemo"></activity>
+        <activity android:name=".viewscrolldemo.ViewScrollDemo" />
+        <activity android:name=".backgroundjobscheduler.JobSchedulerActivity"></activity>
+        <service
+            android:exported="false"
+            android:name=".backgroundjobscheduler.FirebaseJobService">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fjz.androidlittlesamples.backgroundjobscheduler.JobSchedulerActivity;
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
 import com.fjz.androidlittlesamples.viewscrolldemo.ViewScrollDemo;
@@ -57,6 +58,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("TTS Demo", TTSDemo.class),
             new Sample("RecyclerView item click", RvItemClickDemo.class),
             new Sample("ViewScrollDemo", ViewScrollDemo.class),
+            new Sample("JobSchedulerDemo", JobSchedulerActivity.class),
     };
 
 
