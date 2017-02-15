@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fjz.androidlittlesamples.metadata.ReadMetadataActivity">
+
+    <data>
+        <variable
+            name="appMetadata"
+            type="String" />
+        <variable
+            name="activityMetadata"
+            type="String" />
+        <variable
+            name="serviceMetadata"
+            type="String" />
+        <variable
+            name="receiverMetadata"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/activity_read_metadata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{appMetadata}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{serviceMetadata}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{receiverMetadata}"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{activityMetadata}"
+            />
+    </LinearLayout>
+</layout>

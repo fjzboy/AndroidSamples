@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.fjz.androidlittlesamples.backgroundjobscheduler.JobSchedulerActivity;
 import com.fjz.androidlittlesamples.databindingdemo.DatabindingDemoActivity;
+import com.fjz.androidlittlesamples.metadata.ReadMetadataActivity;
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
 import com.fjz.androidlittlesamples.viewscrolldemo.ViewScrollDemo;
@@ -61,6 +62,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("ViewScrollDemo", ViewScrollDemo.class),
             new Sample("JobSchedulerDemo", JobSchedulerActivity.class),
             new Sample("Databinding Demo", DatabindingDemoActivity.class),
+            new Sample("Read Metadata Demo", ReadMetadataActivity.class),
     };
 
 

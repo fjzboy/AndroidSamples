@@ -19,6 +19,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="activity_metadata"
+                android:value="metadata in activity" />
         </activity>
 
         <activity-alias
@@ -47,7 +51,6 @@
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
-
         <service
             android:name=".backgroundjobscheduler.GcmNetworkTaskService"
             android:exported="true"
@@ -57,7 +60,28 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".databindingdemo.DatabindingDemoActivity"></activity>
+        <activity android:name=".databindingdemo.DatabindingDemoActivity" />
+        <activity android:name=".metadata.ReadMetadataActivity" />
+
+        <service
+            android:name=".metadata.MetadataService"
+            android:enabled="true"
+            android:exported="false">
+            <meta-data
+                android:name="service_metadata"
+                android:value="metadata in service" />
+        </service>
+
+        <meta-data
+            android:name="application_metadata"
+            android:value="metadata in application" />
+
+        <receiver
+            android:name=".metadata.MetadataReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <meta-data android:value="metadata in receiver" android:name="receiver_metadata"></meta-data>
+        </receiver>
     </application>
 
 </manifest>
