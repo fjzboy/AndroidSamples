@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fjz.androidlittlesamples">
 
+    <!-- Needed only for demonstration purposes, not required to use GcmNetworkManager -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -34,15 +38,26 @@
         <activity android:name=".tts.TTSDemo" />
         <activity android:name=".recyclerviewitemclicklistener.RvItemClickDemo" />
         <activity android:name=".viewscrolldemo.ViewScrollDemo" />
-        <activity android:name=".backgroundjobscheduler.JobSchedulerActivity"></activity>
+        <activity android:name=".backgroundjobscheduler.JobSchedulerActivity" />
+
         <service
-            android:exported="false"
-            android:name=".backgroundjobscheduler.FirebaseJobService">
+            android:name=".backgroundjobscheduler.FirebaseJobService"
+            android:exported="false">
             <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
 
+        <service
+            android:name=".backgroundjobscheduler.GcmNetworkTaskService"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".databindingdemo.DatabindingDemoActivity"></activity>
     </application>
 
 </manifest>

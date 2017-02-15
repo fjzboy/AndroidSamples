@@ -4,14 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.firebase.jobdispatcher.Constraint;
-import com.firebase.jobdispatcher.FirebaseJobDispatcher;
-import com.firebase.jobdispatcher.GooglePlayDriver;
-import com.firebase.jobdispatcher.Job;
-import com.firebase.jobdispatcher.Lifetime;
-import com.firebase.jobdispatcher.RetryStrategy;
-import com.firebase.jobdispatcher.Trigger;
 import com.fjz.androidlittlesamples.R;
+import com.google.android.gms.gcm.GcmNetworkManager;
+import com.google.android.gms.gcm.PeriodicTask;
+import com.google.android.gms.gcm.Task;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,7 +17,6 @@ import butterknife.OnClick;
  * 1. GcmNetworkManager
  * 2. https://github.com/firebase/firebase-jobdispatcher-android
  * 3. Android-Job
- *
  */
 
 public class JobSchedulerActivity extends AppCompatActivity {
@@ -34,7 +29,8 @@ public class JobSchedulerActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_start_job)
+
+    /*@OnClick(R.id.btn_start_job)
     public void startJob(View view) {
 
         // Create a new dispatcher using the Google Play driver.
@@ -79,7 +75,29 @@ public class JobSchedulerActivity extends AppCompatActivity {
 
         dispatcher.cancel("my-unique-tag");
 
+    }*/
+
+    @OnClick(R.id.btn_start_gcmjob)
+    public void startGmcNetworkManagerTask(View view) {
+        GcmNetworkManager manager = GcmNetworkManager.getInstance(this);
+        PeriodicTask task = new PeriodicTask.Builder()
+                .setService(GcmNetworkTaskService.class)
+                .setTag("my_gcmnetworkmanager_task")
+                .setUpdateCurrent(true)
+                .setPeriod(30)
+                .setFlex(10)
+                .setRequiredNetwork(Task.NETWORK_STATE_UNMETERED)
+                .setPersisted(true)
+                .setRequiresCharging(false)
+                .build();
+
+        manager.schedule(task);
+
     }
 
-
+    @OnClick(R.id.btn_stop_gcmjob)
+    public void stopGmcNetworkManagerTask(View view) {
+        GcmNetworkManager manager = GcmNetworkManager.getInstance(this);
+        manager.cancelTask("my_gcmnetworkmanager_task", GcmNetworkTaskService.class);
+    }
 }

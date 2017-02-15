@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Enabling multidex support.
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -17,6 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+
 }
 
 dependencies {
@@ -35,6 +44,10 @@ dependencies {
 
     compile "com.android.support:recyclerview-v7:25.1.1"
 
-    compile 'com.firebase:firebase-jobdispatcher:0.5.2'
+    //compile 'com.firebase:firebase-jobdispatcher:0.5.2'
     //compile 'com.evernote:android-job:1.1.6'
+
+    compile 'com.google.android.gms:play-services-gcm:8.3.0'
+
+    compile 'com.android.support:multidex:1.0.0'
 }

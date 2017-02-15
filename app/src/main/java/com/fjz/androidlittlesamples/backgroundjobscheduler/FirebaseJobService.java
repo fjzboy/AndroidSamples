@@ -1,3 +1,4 @@
+/*
 package com.fjz.androidlittlesamples.backgroundjobscheduler;
 
 
@@ -5,9 +6,11 @@ import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 import com.orhanobut.logger.Logger;
 
+*/
 /**
  * Created by fjz on 15/02/2017.
- */
+ *//*
+
 
 public class FirebaseJobService extends JobService {
     @Override
@@ -22,3 +25,4 @@ public class FirebaseJobService extends JobService {
         return false;
     }
 }
+*/
