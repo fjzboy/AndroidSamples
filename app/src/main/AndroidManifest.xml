@@ -80,8 +80,12 @@
             android:name=".metadata.MetadataReceiver"
             android:enabled="true"
             android:exported="true">
-            <meta-data android:value="metadata in receiver" android:name="receiver_metadata"></meta-data>
+            <meta-data
+                android:name="receiver_metadata"
+                android:value="metadata in receiver" />
         </receiver>
+
+        <activity android:name=".databindingdemo.BindingRecyclerViewActivity"></activity>
     </application>
 
 </manifest>
