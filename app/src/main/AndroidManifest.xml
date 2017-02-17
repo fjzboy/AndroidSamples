@@ -13,10 +13,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LauncherActivity">
+        <activity android:name=".LauncherActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -80,8 +80,15 @@
             android:name=".metadata.MetadataReceiver"
             android:enabled="true"
             android:exported="true">
-            <meta-data android:value="metadata in receiver" android:name="receiver_metadata"></meta-data>
+            <meta-data
+                android:name="receiver_metadata"
+                android:value="metadata in receiver" />
         </receiver>
+
+        <activity android:name=".databindingdemo.BindingRecyclerViewActivity" />
+        <activity android:name=".ultraadapter.SuperRecyclerAdapterActivity" />
+        <activity android:name=".notification.NotificationDemoActivity"
+            android:parentActivityName=".LauncherActivity"></activity>
     </application>
 
 </manifest>

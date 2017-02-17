@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.fjz.androidlittlesamples.backgroundjobscheduler.JobSchedulerActivity;
 import com.fjz.androidlittlesamples.databindingdemo.DatabindingDemoActivity;
 import com.fjz.androidlittlesamples.metadata.ReadMetadataActivity;
+import com.fjz.androidlittlesamples.notification.NotificationDemoActivity;
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
 import com.fjz.androidlittlesamples.viewscrolldemo.ViewScrollDemo;
@@ -63,6 +64,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("JobSchedulerDemo", JobSchedulerActivity.class),
             new Sample("Databinding Demo", DatabindingDemoActivity.class),
             new Sample("Read Metadata Demo", ReadMetadataActivity.class),
+            new Sample("Notification Demo", NotificationDemoActivity.class),
     };
 
 
@@ -76,7 +78,11 @@ public class LauncherActivity extends AppCompatActivity {
         initViews();
     }
 
-
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Logger.i("in launcher activity: onNewIntent=" +intent.toString());
+    }
 
     private void initViews() {
         ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.samples_listitem_layout, R.id.tv_sample_name, samplesData);
