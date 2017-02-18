@@ -13,6 +13,7 @@ import com.fjz.androidlittlesamples.databindingdemo.DatabindingDemoActivity;
 import com.fjz.androidlittlesamples.metadata.ReadMetadataActivity;
 import com.fjz.androidlittlesamples.notification.NotificationDemoActivity;
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
+import com.fjz.androidlittlesamples.rxandroid.RxAndroidDemoActivity;
 import com.fjz.androidlittlesamples.tts.TTSDemo;
 import com.fjz.androidlittlesamples.viewscrolldemo.ViewScrollDemo;
 import com.orhanobut.logger.Logger;
@@ -65,6 +66,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("Databinding Demo", DatabindingDemoActivity.class),
             new Sample("Read Metadata Demo", ReadMetadataActivity.class),
             new Sample("Notification Demo", NotificationDemoActivity.class),
+            new Sample("RxJava2 Demo", RxAndroidDemoActivity.class),
     };
 
 

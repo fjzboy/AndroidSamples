@@ -120,11 +120,20 @@ public class NotificationDemoActivity extends AppCompatActivity {
 
     public PendingIntent getTaskBuilderPi() {
 
+
         Intent intent = new Intent(this, NotificationDemoActivity.class);
+        Intent intentA = new Intent(this, ADemoActivity.class);
+        String data1 = "I am data form intentA";
+        intentA.putExtra("data", data1);
+        Intent intentB = new Intent(this, BDemoActivity.class);
+        data1 = "I am data form intentB";
+        intentB.putExtra("data", data1);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addParentStack(NotificationDemoActivity.class);
         stackBuilder.addNextIntent(intent);
+        stackBuilder.addNextIntent(intentA);
+        stackBuilder.addNextIntent(intentB);
 
         PendingIntent pi = stackBuilder.getPendingIntent(0,
                 PendingIntent.FLAG_UPDATE_CURRENT);

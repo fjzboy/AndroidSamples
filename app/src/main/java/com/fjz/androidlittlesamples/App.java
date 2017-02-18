@@ -12,6 +12,6 @@ public class App extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        Logger.init("ALS").hideThreadInfo();
+        Logger.init("ALS");
     }
 }
