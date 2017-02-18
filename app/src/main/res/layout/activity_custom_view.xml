@@ -10,4 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.fjz.androidlittlesamples.customview.CustomViewActivity">
 
+    <com.fjz.androidlittlesamples.customview.LoadingView
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 </RelativeLayout>

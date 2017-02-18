@@ -94,7 +94,8 @@
             android:parentActivityName=".LauncherActivity" />
         <activity android:name=".notification.ADemoActivity" />
         <activity android:name=".notification.BDemoActivity" />
-        <activity android:name=".rxandroid.RxAndroidDemoActivity"></activity>
+        <activity android:name=".rxandroid.RxAndroidDemoActivity" />
+        <activity android:name=".customview.CustomViewActivity"></activity>
     </application>
 
 </manifest>
