@@ -53,11 +53,8 @@
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
             </intent-filter>
         </service>
-
         <service android:name=".backgroundjobscheduler.MyService" />
-
         <service android:name=".unittest.UnitTestService" />
-
         <service
             android:name=".backgroundjobscheduler.GcmNetworkTaskService"
             android:exported="true"
@@ -101,7 +98,8 @@
         <activity android:name=".notification.BDemoActivity" />
         <activity android:name=".rxandroid.RxAndroidDemoActivity" />
         <activity android:name=".customview.CustomViewActivity" />
-        <activity android:name=".PopWinAnimActivity"></activity>
+        <activity android:name=".PopWinAnimActivity" />
+        <activity android:name=".itemtouchhelper.ItemTouchHelperDemoActivity"></activity>
     </application>
 
 </manifest>

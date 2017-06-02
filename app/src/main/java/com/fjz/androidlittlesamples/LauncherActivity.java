@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.fjz.androidlittlesamples.backgroundjobscheduler.JobSchedulerActivity;
 import com.fjz.androidlittlesamples.customview.CustomViewActivity;
 import com.fjz.androidlittlesamples.databindingdemo.DatabindingDemoActivity;
+import com.fjz.androidlittlesamples.itemtouchhelper.ItemTouchHelperDemoActivity;
 import com.fjz.androidlittlesamples.metadata.ReadMetadataActivity;
 import com.fjz.androidlittlesamples.notification.NotificationDemoActivity;
 import com.fjz.androidlittlesamples.recyclerviewitemclicklistener.RvItemClickDemo;
@@ -70,6 +71,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("RxJava2 Demo", RxAndroidDemoActivity.class),
             new Sample("CustomView Demo", CustomViewActivity.class),
             new Sample("PopupWin Demo", PopWinAnimActivity.class),
+            new Sample("ItemTouchHelper Demo", ItemTouchHelperDemoActivity.class),
     };
 
 
