@@ -54,10 +54,6 @@ public class NotificationDemoActivity extends AppCompatActivity {
         nmc.notify(18111, n);
     }
 
-
-
-
-
     public void mediaStyleNotification(View view) {
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 

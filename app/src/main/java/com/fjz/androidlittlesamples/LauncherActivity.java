@@ -69,6 +69,7 @@ public class LauncherActivity extends AppCompatActivity {
             new Sample("Notification Demo", NotificationDemoActivity.class),
             new Sample("RxJava2 Demo", RxAndroidDemoActivity.class),
             new Sample("CustomView Demo", CustomViewActivity.class),
+            new Sample("PopupWin Demo", PopWinAnimActivity.class),
     };
 
 

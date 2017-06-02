@@ -8,10 +8,12 @@
     <data>
         <import type="com.fjz.androidlittlesamples.R"/>
         <import type="android.view.View.OnClickListener" />
-        
+        <import type="android.databinding.ObservableBoolean" />
+        <import type="android.databinding.ObservableField" />
+
         <variable
             name="state"
-            type="Boolean" />
+            type="ObservableBoolean" />
 
         <variable
             name="name"
@@ -19,7 +21,7 @@
 
         <variable
             name="imgUrl"
-            type="String" />
+            type="ObservableField" />
 
         <variable
             name="handler"
@@ -45,7 +47,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:scaleType="centerInside"
-            android:src="@{state?@drawable/yuanfen_pressed:@drawable/yuanfen_normal}" />
+            android:src="@{state.get() ? @drawable/yuanfen_pressed : @drawable/yuanfen_normal}" />
 
         <TextView
             android:layout_width="match_parent"
@@ -56,7 +58,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            app:image="@{imgUrl}"/>
+            app:image="@{(String)imgUrl.get()}"/>
 
         <Button
             android:id="@+id/btn_enter_rv"

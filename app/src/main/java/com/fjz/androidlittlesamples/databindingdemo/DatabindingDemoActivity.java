@@ -2,6 +2,8 @@ package com.fjz.androidlittlesamples.databindingdemo;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableBoolean;
+import android.databinding.ObservableField;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +14,9 @@ import com.fjz.androidlittlesamples.databinding.ActivityDatabindingBinding;
 public class DatabindingDemoActivity extends AppCompatActivity {
 
     ActivityDatabindingBinding binding;
-    private boolean state = false;
+    private ObservableBoolean state = new ObservableBoolean(false);
+
+    ObservableField<String> imgUrl = new ObservableField<>();
 
     String[] imgUrls = {
             "https://deow9bq0xqvbj.cloudfront.net/dir-logo/311963/311963_300x300.jpg",
@@ -24,10 +28,10 @@ public class DatabindingDemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding);
-
         binding.setState(state);
         binding.setName("test");
-        binding.setImgUrl(imgUrls[0]);
+        imgUrl.set(imgUrls[0]);
+        binding.setImgUrl(imgUrl);
         binding.setHandler(handler);
     }
 
@@ -37,13 +41,14 @@ public class DatabindingDemoActivity extends AppCompatActivity {
 
             switch (v.getId()) {
                 case R.id.btn_state:
+
                     binding.setName("feaadf");
-                    state = !state;
-                    binding.setState(state);
-                    if(binding.getImgUrl().equals(imgUrls[0])) {
-                        binding.setImgUrl(imgUrls[1]);
+                    state.set(!state.get());
+
+                    if(imgUrl.get().equals(imgUrls[0])) {
+                        imgUrl.set(imgUrls[1]);
                     } else {
-                        binding.setImgUrl(imgUrls[0]);
+                        imgUrl.set(imgUrls[0]);
                     }
                     break;
                 case R.id.btn_enter_rv:
